@@ -15,7 +15,7 @@ const data = (state, action) => {
             const existingTransaction = state.transaction[existingTransactionIndex];
             let updatedTransactions;
 
-            const updatedTransaction = { ...existingTransaction, text: action.payload.text, amount: action.payload.amount}
+            const updatedTransaction = { ...existingTransaction, text: action.payload.text, amount: +action.payload.amount}
             updatedTransactions = [...state.transaction]
             updatedTransactions[existingTransactionIndex] = updatedTransaction
 

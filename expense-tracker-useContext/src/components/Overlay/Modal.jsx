@@ -1,16 +1,14 @@
 import { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import classes from './Modal.module.css';
-
 const Backdrop = () => {
-  return <div className={classes.backdrop}/>;
+  return <div className="backdrop"/>;
 };
 
 const ModalOverlay = (props) => {
   return (
-    <div className={classes.modal}>
-      <div className={classes.content}>{props.children}</div>
+    <div className="modal">
+      <div className="content">{props.children}</div>
     </div>
   );
 };

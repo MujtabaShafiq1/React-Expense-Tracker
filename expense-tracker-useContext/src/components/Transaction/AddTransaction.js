@@ -5,21 +5,23 @@ const AddTransaction = () => {
 
     const [text, setText] = useState('')
     const [amount, setAmount] = useState(0)
-
+    
     const { AddTransaction } = useContext(GlobalContext)
 
     const submitHandler = (event) => {
         event.preventDefault()
         const newTransaction = {
-            id: Math.floor(Math.random()*100000000),
+            id: Math.floor(Math.random() * 100000000),
             text: text,
             amount: +amount
         }
         AddTransaction(newTransaction)
+        setText("")
+        setAmount(0)
     }
 
     const textChangeHandler = (event) => {
-        setText(event.target.value)
+            setText(event.target.value)
     }
 
     const amountChangeHandler = (event) => {

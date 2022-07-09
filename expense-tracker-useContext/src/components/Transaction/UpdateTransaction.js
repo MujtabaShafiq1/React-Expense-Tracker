@@ -26,15 +26,15 @@ const UpdateTransaction = ({ transaction, onClose }) => {
         <>
             <Modal onClose={onClose}>
                 <button className='close' onClick={onClose}>X</button>
-                <h3>Update Transaction</h3>
+                <h2>Update Transaction</h2>
                 <form onSubmit={submitHandler}>
                     <div className='form-control'>
                         <label htmlFor="text">Text</label>
                         <input
                             type="text"
                             name="expenseText"
-                            value={text || ''}
-                            onChange={(e) => textChangeHandler(e)}
+                            value={text}
+                            onChange={textChangeHandler}
                             placeholder='Enter Text...'
                         />
                     </div>
@@ -43,8 +43,8 @@ const UpdateTransaction = ({ transaction, onClose }) => {
                         <input
                             type="number"
                             name="expenseAmount"
-                            value={amount || 0}
-                            onChange={(e) => amountChangeHandler(e)}
+                            value={amount}
+                            onChange={amountChangeHandler}
                             placeholder='Enter Amount...'
                         />
                     </div>
