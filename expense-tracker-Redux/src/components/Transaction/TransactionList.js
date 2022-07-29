@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import { GlobalContext } from '../context/GlobalState'
+import React from 'react'
 import Transaction from './Transaction'
+import { useSelector } from 'react-redux'
 
 const TransactionList = () => {
 
-  const { transactions } = useContext(GlobalContext)
+  const transactions = useSelector((state) => state.transaction)
 
   return (
     <>
@@ -16,7 +16,6 @@ const TransactionList = () => {
             key={transaction.id}
           />
         ))}
-
       </ul>
     </>
   )

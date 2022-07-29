@@ -1,12 +1,12 @@
-import React, { useContext, useState } from 'react'
-import { GlobalContext } from '../context/GlobalState'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addTransaction } from '../../store/ExpenseActions';
 
 const AddTransaction = () => {
 
+    const dispatch = useDispatch();
     const [text, setText] = useState('')
     const [amount, setAmount] = useState(0)
-
-    const { AddTransaction } = useContext(GlobalContext)
 
     const submitHandler = (event) => {
         event.preventDefault()
@@ -15,17 +15,18 @@ const AddTransaction = () => {
             text: text,
             amount: +amount
         }
-        AddTransaction(newTransaction)
+        dispatch(addTransaction(newTransaction))
+        setText("")
+        setAmount(0)
     }
 
     const textChangeHandler = (event) => {
-        setText(event.target.value)
+            setText(event.target.value)
     }
 
     const amountChangeHandler = (event) => {
         setAmount(event.target.value)
     }
-
 
     return (
         <>
